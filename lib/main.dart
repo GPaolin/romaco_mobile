@@ -199,6 +199,10 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
+            Image.asset(
+              'images/romaco_app.png',
+              fit: BoxFit.cover,
+            ),
             Text(
               '$_action',
               style: Theme.of(context).textTheme.headline4,
@@ -250,14 +254,14 @@ class _MyHomePageState extends State<MyHomePage> {
               // icon: const Icon(Icons.qr_code),
               // iconSize: 60,
             ),
-            TextButton(
-                onPressed: upload,
-                child: const Text(
-                    'TEST UPLOAD ROMACO MOBILE'
-                )
-              // icon: const Icon(Icons.qr_code),
-              // iconSize: 60,
-            ),
+            // TextButton(
+            //     onPressed: upload,
+            //     child: const Text(
+            //         'TEST UPLOAD ROMACO MOBILE'
+            //     )
+            //   // icon: const Icon(Icons.qr_code),
+            //   // iconSize: 60,
+            // ),
           ],
         ),
       ),
