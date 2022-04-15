@@ -241,7 +241,7 @@ class _MyHomePageState extends State<MyHomePage> {
             TextButton(
                 onPressed: _checkLoginAndGo,
                 child: const Text(
-                    'Login'
+                    'LOGIN'
                 )
               // icon: const Icon(Icons.qr_code),
               // iconSize: 60,
