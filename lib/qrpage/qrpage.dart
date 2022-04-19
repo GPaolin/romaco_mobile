@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:google_drive_demo_app/qrpage/qrviewer.dart';
+import 'package:romaco_mobile/qrpage/qrviewer.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 class QRPageWidget extends StatefulWidget {
@@ -29,7 +29,7 @@ class _QRPageWidgetState extends State<QRPageWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Romaco App Scan Code'),
+        title: Text('Scan Code on machine'),
       ),
       body: Stack(
         // alignment: Alignment.center,

@@ -91,12 +91,14 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future<void> _downloadDriveQR2() async {
-    QRCodeRead qrCodeRead = QRCodeRead();
-    //PARSE STRING -> TO DO
-    qrCodeRead.code = "100-9P117504002";
-    Navigator.push(context,
-        MaterialPageRoute(builder: (context) => QRViewerWidget(
-            qrcode: qrCodeRead)));
+    if(globals.qr_codescanned) {
+      QRCodeRead qrCodeRead = QRCodeRead();
+      //PARSE STRING -> TO DO
+      qrCodeRead.code = "ElectricalSheet";
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => QRViewerWidget(
+              qrcode: qrCodeRead)));
+    }
   }
 
 
@@ -175,7 +177,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   var _action = "Romaco technical drawings";
-  var _action2 = "Look for qrcode on the machine to show technical drawings\nof machine groups (you must be logged in)";
+  var _action2 = "Look for qrcode on the machine to show technical drawings\nof machine groups";
 
   void _checkLoginAndGo() {
     //TO DO -> check user email and password
@@ -200,14 +202,14 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             Image.asset(
-              'images/romaco_app.png',
+              'images/romaco_sustain.png',
               fit: BoxFit.cover,
             ),
-            Text(
-              '$_action',
-              style: Theme.of(context).textTheme.headline4,
-              textAlign: TextAlign.center,
-            ),
+            // Text(
+            //   '$_action',
+            //   style: Theme.of(context).textTheme.headline4,
+            //   textAlign: TextAlign.center,
+            // ),
             Text(
               '$_action2',
               style: Theme.of(context).textTheme.bodyText1,
@@ -223,45 +225,64 @@ class _MyHomePageState extends State<MyHomePage> {
             //     icon: const Icon(Icons.download),
             //     iconSize: 70,
             // ),
-            const TextField(
-              decoration: InputDecoration(
-                  focusColor: Colors.blue,
-                  border: OutlineInputBorder(),
-                  labelText: 'Email',
-                  hintText: 'Enter valid email id as abc@gmail.com'),
-            ),
-            const TextField(
-              obscureText: true,
-              decoration: InputDecoration(
-                  focusColor: Colors.blue,
-                  border: OutlineInputBorder(),
-                  labelText: 'Password',
-                  hintText: 'Enter password'),
-            ),
-            TextButton(
-                onPressed: _checkLoginAndGo,
-                child: const Text(
-                    'LOGIN'
-                )
-              // icon: const Icon(Icons.qr_code),
-              // iconSize: 60,
-            ),
-            TextButton(
-                onPressed: _downloadDriveQR2,
-                child: const Text(
-                    'TEST'
-                )
-              // icon: const Icon(Icons.qr_code),
-              // iconSize: 60,
-            ),
+            // const TextField(
+            //   decoration: InputDecoration(
+            //       focusColor: Colors.blue,
+            //       border: OutlineInputBorder(),
+            //       labelText: 'Email',
+            //       hintText: 'Enter valid email id as abc@gmail.com'),
+            // ),
+            // const TextField(
+            //   obscureText: true,
+            //   decoration: InputDecoration(
+            //       focusColor: Colors.blue,
+            //       border: OutlineInputBorder(),
+            //       labelText: 'Password',
+            //       hintText: 'Enter password'),
+            // ),
             // TextButton(
-            //     onPressed: upload,
+            //     onPressed: _checkLoginAndGo,
             //     child: const Text(
-            //         'TEST UPLOAD ROMACO MOBILE'
+            //         'LOGIN'
             //     )
             //   // icon: const Icon(Icons.qr_code),
             //   // iconSize: 60,
             // ),
+            IconButton(
+              icon: Image.asset('images/qr_code_button.png'),
+              iconSize: 80,
+              onPressed: _checkLoginAndGo,
+            ),
+            Row(
+              children: <Widget>[
+                Expanded(
+                  child: TextButton(onPressed: _downloadDriveQR2, child: const Text('Electrical sheet'),
+                  ),
+                ),
+                // Expanded(
+                //   child: IconButton(
+                //     icon: Image.asset('images/qr_code_button.png'),
+                //     iconSize: 80,
+                //     onPressed: _checkLoginAndGo,
+                //   ),
+                // ),
+                Expanded(
+                  child: TextButton(onPressed: _downloadDriveQR2, child: const Text('HMI manual')),
+                ),
+                Expanded(
+                  child:  TextButton(
+                    onPressed: _downloadDriveQR2,
+                    child: const Text(
+                        'TEST'
+                    )
+                ),
+                )
+              ],
+            ),
+            Image.asset(
+              'images/onestop.png',
+              fit: BoxFit.fitWidth,
+            )
           ],
         ),
       ),

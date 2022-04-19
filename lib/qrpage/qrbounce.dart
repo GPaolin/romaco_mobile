@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_drive_demo_app/qrpage/qrpage.dart';
-import 'package:google_drive_demo_app/globals.dart' as globals;
+import 'package:romaco_mobile/qrpage/qrpage.dart';
+import 'package:romaco_mobile/globals.dart' as globals;
 
 class QRBounce extends StatelessWidget {
   const QRBounce({Key? key}) : super(key: key);
@@ -9,7 +9,7 @@ class QRBounce extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Romaco app demo',
+      title: 'Romaco app',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -118,7 +118,7 @@ class _AppEnticerState extends State<AppEnticer> {
             child: Padding(
               padding: const EdgeInsets.all(20.0),
               child: CircularProgressIndicator(
-                color: Colors.purpleAccent,
+                color: Colors.blue,
               ),
             ),
           ),

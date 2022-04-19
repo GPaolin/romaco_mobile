@@ -1,12 +1,12 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:qr_code_scanner/qr_code_scanner.dart';
-import 'package:google_drive_demo_app/qrpage/qrpage.dart';
+import 'package:romaco_mobile/qrpage/qrpage.dart';
+import 'package:romaco_mobile/GoogleAuthClient.dart';
+import 'package:romaco_mobile/globals.dart' as globals;
 
-import 'package:google_drive_demo_app/GoogleAuthClient.dart';
+import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:googleapis/drive/v3.dart' as drive;
 import 'package:google_sign_in/google_sign_in.dart' as signIn;
-
 import 'package:url_launcher/url_launcher.dart';
 
 class QRViewerWidget extends StatefulWidget {
@@ -26,13 +26,16 @@ class _QRViewerWidgetState extends State<QRViewerWidget> {
 
   @override
   Widget build(BuildContext context) {
+
+    globals.qr_codescanned = true;
+
     return Scaffold(
       /*
       appBar: AppBar(
         title: Text('Romaco App Scan Code'),
       ),
-
        */
+
       body:
       Center(
         child: Column(
@@ -44,7 +47,8 @@ class _QRViewerWidgetState extends State<QRViewerWidget> {
             ),
             IconButton(
               onPressed: _downloadDrive,
-              icon: const Icon(Icons.vignette),
+              //icon: Image.asset('images/tech_draw.png'),
+              icon: Icon(Icons.visibility),
               iconSize: 72,
             ),
           ],),
