@@ -38,6 +38,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: const MyHomePage(title: 'Romaco App Home'),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
@@ -46,6 +47,7 @@ class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
   final String title;
 
+
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
@@ -53,6 +55,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   final _homePage = 0;
   final _qrPage = 1;
+  String macserial = globals.machine_serial;
 
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
 
@@ -90,6 +93,12 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _downloadDriveQR3()  {
+    globals.qr_codescanned = true;
+    _downloadDriveQR2();
+  }
+
+
   Future<void> _downloadDriveQR2() async {
     if(globals.qr_codescanned) {
       QRCodeRead qrCodeRead = QRCodeRead();
@@ -99,6 +108,9 @@ class _MyHomePageState extends State<MyHomePage> {
           MaterialPageRoute(builder: (context) => QRViewerWidget(
               qrcode: qrCodeRead)));
     }
+    setState(() {
+      macserial = globals.machine_serial;
+    });
   }
 
 
@@ -188,14 +200,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: globals.generalColor,
-      /*
       appBar: AppBar(
-        backgroundColor: _generalColor,
-        title: Text(widget.title),
+        backgroundColor: globals.romacoColor,
+        title: Text('Home'),
       ),
-       */
       body:
       Center(
         child: Column(
@@ -206,48 +217,15 @@ class _MyHomePageState extends State<MyHomePage> {
               fit: BoxFit.cover,
             ),
             // Text(
-            //   '$_action',
-            //   style: Theme.of(context).textTheme.headline4,
+            //   '$_action2',
+            //   style: Theme.of(context).textTheme.bodyText1,
             //   textAlign: TextAlign.center,
             // ),
             Text(
-              '$_action2',
+              'Machine: $macserial',
               style: Theme.of(context).textTheme.bodyText1,
               textAlign: TextAlign.center,
             ),
-            // IconButton(
-            //   onPressed: _upload,
-            //   icon: const Icon(Icons.upload),
-            //   iconSize: _mainIconSize,
-            // ),
-            // IconButton(
-            //     onPressed: _downloadDriveQR2,
-            //     icon: const Icon(Icons.download),
-            //     iconSize: 70,
-            // ),
-            // const TextField(
-            //   decoration: InputDecoration(
-            //       focusColor: Colors.blue,
-            //       border: OutlineInputBorder(),
-            //       labelText: 'Email',
-            //       hintText: 'Enter valid email id as abc@gmail.com'),
-            // ),
-            // const TextField(
-            //   obscureText: true,
-            //   decoration: InputDecoration(
-            //       focusColor: Colors.blue,
-            //       border: OutlineInputBorder(),
-            //       labelText: 'Password',
-            //       hintText: 'Enter password'),
-            // ),
-            // TextButton(
-            //     onPressed: _checkLoginAndGo,
-            //     child: const Text(
-            //         'LOGIN'
-            //     )
-            //   // icon: const Icon(Icons.qr_code),
-            //   // iconSize: 60,
-            // ),
             IconButton(
               icon: Image.asset('images/qr_code_button.png'),
               iconSize: 80,
@@ -259,19 +237,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: TextButton(onPressed: _downloadDriveQR2, child: const Text('Electrical sheet'),
                   ),
                 ),
-                // Expanded(
-                //   child: IconButton(
-                //     icon: Image.asset('images/qr_code_button.png'),
-                //     iconSize: 80,
-                //     onPressed: _checkLoginAndGo,
-                //   ),
-                // ),
                 Expanded(
                   child: TextButton(onPressed: _downloadDriveQR2, child: const Text('HMI manual')),
                 ),
                 Expanded(
                   child:  TextButton(
-                    onPressed: _downloadDriveQR2,
+                    onPressed: _downloadDriveQR3,
                     child: const Text(
                         'TEST'
                     )
@@ -279,12 +250,25 @@ class _MyHomePageState extends State<MyHomePage> {
                 )
               ],
             ),
-            Image.asset(
-              'images/onestop.png',
-              fit: BoxFit.fitWidth,
-            )
+            // Image.asset(
+            //   'images/onestop.png',
+            //   fit: BoxFit.fitWidth,
+            // )
           ],
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: globals.romacoColor,
+        items: [
+          BottomNavigationBarItem(
+              icon: Image.asset('images/onestop.png', width: 0),  //BAD WORKAROUND!!!
+              label: '',
+          ),
+          BottomNavigationBarItem(
+              icon: Image.asset('images/onestop.png', width: 0,), //BAD WORKAROUND!!!
+              label: ''
+          ),
+        ],
       ),
     );
   }

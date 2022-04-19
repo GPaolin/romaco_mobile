@@ -28,13 +28,13 @@ class _QRViewerWidgetState extends State<QRViewerWidget> {
   Widget build(BuildContext context) {
 
     globals.qr_codescanned = true;
+    globals.machine_serial = "P7521003";
 
     return Scaffold(
-      /*
       appBar: AppBar(
-        title: Text('Romaco App Scan Code'),
+        backgroundColor: globals.romacoColor,
+        title: Text('QR Viewer'),
       ),
-       */
 
       body:
       Center(

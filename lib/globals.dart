@@ -6,3 +6,4 @@ Color romacoColor = Colors.blue;
 double mainIconSize = 72.00;
 
 var qr_codescanned = false;
+var machine_serial = "Scan code to find machine";
