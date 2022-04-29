@@ -1,20 +1,20 @@
 {
   "project_info": {
-    "project_number": "457283129634",
-    "project_id": "romaco-mobile",
-    "storage_bucket": "romaco-mobile.appspot.com"
+    "project_number": "487217146835",
+    "project_id": "romaco-mobile-9a79f",
+    "storage_bucket": "romaco-mobile-9a79f.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:457283129634:android:ba853e91c32c17afa4957b",
+        "mobilesdk_app_id": "1:487217146835:android:8659582d80ce5b7d7d1d26",
         "android_client_info": {
           "package_name": "com.romaco.romaco_mobile"
         }
       },
       "oauth_client": [
         {
-          "client_id": "457283129634-3b80h79jck3q3rhjb961tvq1mmc4rpvt.apps.googleusercontent.com",
+          "client_id": "487217146835-175njpv12ah4nfbcoct6topllfi19ds1.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.romaco.romaco_mobile",
@@ -22,20 +22,20 @@
           }
         },
         {
-          "client_id": "457283129634-dvo9681rlf1v7hjpuqos05ghhjoukr0c.apps.googleusercontent.com",
+          "client_id": "487217146835-38o86mn5bq3l1de2antouo1n3bhci3ne.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyApyCHw8q-KSUzdVhsv-Ab-ZQg5UPq22P8"
+          "current_key": "AIzaSyCTT2fr5ytb5lA7Q9_1snIcifAIX_FzX34"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "457283129634-dvo9681rlf1v7hjpuqos05ghhjoukr0c.apps.googleusercontent.com",
+              "client_id": "487217146835-38o86mn5bq3l1de2antouo1n3bhci3ne.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

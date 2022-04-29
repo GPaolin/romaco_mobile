@@ -93,9 +93,23 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  Future<void> _downloadDriveQR4() async {
+    if (globals.qr_codescanned) {
+      QRCodeRead qrCodeRead = QRCodeRead();
+      //PARSE STRING -> TO DO
+      qrCodeRead.code = "SpareOrder";
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) =>
+              QRViewerWidget(
+                  qrcode: qrCodeRead)));
+    }
+  setState(() {
+      macserial = globals.machine_serial;
+    });
+  }
+
   void _downloadDriveQR3()  {
     globals.qr_codescanned = true;
-    _downloadDriveQR2();
   }
 
 
@@ -238,7 +252,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
                 Expanded(
-                  child: TextButton(onPressed: _downloadDriveQR2, child: const Text('HMI manual')),
+                  child: TextButton(onPressed: _downloadDriveQR4, child: const Text('Spare order')),
                 ),
                 Expanded(
                   child:  TextButton(

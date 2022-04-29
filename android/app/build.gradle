@@ -43,7 +43,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.example.romaco_mobile"
+        applicationId "com.romaco.romaco_mobile"
         //minSdkVersion flutter.minSdkVersion
         minSdkVersion 23
         targetSdkVersion flutter.targetSdkVersion
@@ -67,3 +67,4 @@ flutter {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
+
